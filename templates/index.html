@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 15vw;
+        object-fit: cover;
+        filter: brightness(0.8);
+    }
+</style>
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container h-100">
+    <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+        <h1 class="fw-light">Tomas Lehtelä</h1>
+        <p class="lead">Skii eller Skoo</p>
+        </div>
+    </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for post in latest_blogs %}
+            <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                <div class="card bg-dark text-white">
+                    <img src="{{ post.image.url }}" class="card-img-top img-fluid">
+                    <div class="card-img-overlay">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <span class="badge rounded-pill bg-dark">Python</span>
+                    <span class="badge rounded-pill bg-dark">django</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+      <span class="text-muted">Copyright Tomas Lehtelä 2022</span>
+    </div>
+  </footer>
+{% endblock %}
